@@ -4,63 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Your Engineering Portfolio</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-      }
-
-      header {
-        text-align: center;
-        padding: 20px;
-        background-color: #f0f0f0;
-      }
-
-      nav {
-        display: flex;
-        justify-content: center;
-        background-color: #333;
-        padding: 10px;
-      }
-
-      nav a {
-        color: #fff;
-        text-decoration: none;
-        margin: 0 15px;
-        font-weight: bold;
-      }
-
-      section {
-        margin-bottom: 30px;
-      }
-
-      h2 {
-        color: #333;
-      }
-
-      ul {
-        list-style-type: none;
-        padding: 0;
-      }
-
-      li {
-        margin-bottom: 10px;
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header>
-      <h1>Your Name</h1>
-      <p>Engineering Portfolio</p>
+      <div class="header-content">
+        <div class="header-text">
+          <h1>Your Name</h1>
+          <p>Engineering Portfolio</p>
+        </div>
+        <div class="header-image">
+          <img src="your-face-image.jpg" alt="Your Face" />
+        </div>
+      </div>
     </header>
 
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="skills.html">Skills</a>
-      <!-- Add more buttons with corresponding href attributes for additional pages -->
-    </nav>
+    <div id="navbar-container"></div>
 
     <section id="about">
       <h2>About Me</h2>
@@ -89,9 +48,29 @@
       </ul>
     </section>
 
+    <footer>
+      <h2>Connect with Me</h2>
+      <ul>
+        <li>
+          <a href="https://www.linkedin.com/in/your-linkedin" target="_blank"
+            >LinkedIn</a
+          >
+        </li>
+        <!-- Add more social media links as needed -->
+      </ul>
+    </footer>
+
     <!-- Your JavaScript code goes here -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        // Load the navbar content using fetch and insert it into the #navbar-container
+        fetch("navbar.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("navbar-container").innerHTML = data;
+          })
+          .catch((error) => console.error("Error loading navbar:", error));
+
         // Your JavaScript logic here
         console.log("Page loaded!");
       });
