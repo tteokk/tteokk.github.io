@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>capstone</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background-color: #fff; color: #333; }
+    header, footer { padding: 1em; text-align: center; }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em;
+      background: #d498a8;
+      color: white;
+    }
+    nav a {
+      color: white;
+      margin: 0 1em;
+      text-decoration: none;
+    }
+    nav .logo {
+      display: flex;
+      align-items: center;
+    }
+    nav .logo img {
+      height: 40px;
+      margin-right: 0.5em;
+    }
+
+    .content {
+      padding: 2em 1em;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .breadcrumb {
+      margin-bottom: 1em;
+      font-size: 0.9em;
+    }
+    .breadcrumb a {
+      color: #d498a8;
+      text-decoration: none;
+    }
+
+    .highlight-box {
+      border: 2px solid #dfb1bc;
+      background-color: #fff0f5;
+      border-radius: 8px;
+      padding: 1em;
+    }
+
+    .scroll-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-size: 1.5em;
+      text-decoration: none;
+      color: #d498a8;
+      background-color: white;
+      border: 2px solid #d498a8;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 1000;
+    }
+    .scroll-top.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    footer {
+      background-color: #0d0f14;
+      color: white;
+      padding: 2em 1em;
+    }
+    .socials {
+      margin-top: 1em;
+      display: flex;
+      justify-content: center;
+      gap: 1em;
+    }
+    .icon {
+      width: 24px;
+      height: 24px;
+    }
+  </style>
+</head>
+<body>
+<a class="scroll-top" href="#top" id="scrollTop" title="Back to top">↑</a>
+
+<nav>
+  <div class="logo">
+    <img src="etc.png" alt="Logo" />
+  </div>
+  <div>
+    <a href="index.html#portfolio">portfolio</a>
+    <a href="2025 resume.pdf" target="_blank">resume</a>
+  </div>
+</nav>
+
+<div class="content">
+  <div class="breadcrumb">
+    <a href="index.html">← Back to Home</a>
+  </div>
+
+  <h1>Capstone Project: ENV-ISION</h1>
+  <p><strong>ENV-ISION</strong> is an autonomous boat trailering system designed to streamline the docking process. With a press of a button, the boat moves into position, drives onto a trailer, and securely latches—all without human intervention. Built with the support of <strong>ENVGO</strong>, this project prioritizes convenience, safety, and autonomy.</p>
+
+  <img src="capstone/symposium poster.png" alt="ENV-ISION Poster" style="width: 100%; border-radius: 8px; margin: 2em 0;" />
+
+  <h2>Team & Concept</h2>
+  <ul>
+    <li>Designed by 5 Mechatronics students (Mech, Electrical, Embedded, Controls)</li>
+    <li>Single-person autonomous trailering (vs typical 2-person manual process)</li>
+    <li>Camera detects targets → processes position → feeds controller to drive motors</li>
+  </ul>
+
+  <h2>Breakdown by Discipline</h2>
+
+  <h3>🛠️ Mechanical</h3>
+  <p>Designed the waterproof chassis, latch, and thruster layout. CAD in SolidWorks, fabricated in acrylic & aluminum.</p>
+
+  <h3>🔌 Electrical</h3>
+  <p>Managed LiPo battery layout, ESC setup, and power safety. Designed wiring schematics and distribution.</p>
+
+  <div class="highlight-box">
+    <h3>💻 Embedded</h3>
+    <p><strong>My focus:</strong> Wrote firmware for serial communication between Raspberry Pi and Arduino. Controlled 3 thrusters via UART and implemented safety shutdown procedures.</p>
+  </div>
+
+  <h3>🧠 Controls</h3>
+  <p>Used AprilTag vision feedback to compute boat position and orientation. PID controller calculated motor duty cycles for 3 DOF movement.</p>
+
+  <h2>System Diagrams</h2>
+  <img src="capstone/algorithm-flowchart-boat.png" alt="Boat Algorithm Flowchart" style="width: 100%; border-radius: 8px; margin: 1em 0;">
+  <img src="capstone/block-diagram-boat.png" alt="Block Diagram" style="width: 100%; border-radius: 8px; margin-bottom: 1em;">
+
+  <h2>Simulation Results</h2>
+  <ul>
+    <li>Simulated crosswind disturbance of 5N was successfully compensated</li>
+    <li>PID control ensures steady state error of ~0</li>
+    <li>Realistic motion paths under known system dynamics</li>
+  </ul>
+  <img src="capstone/simulation-trajectory.png" alt="Simulated Trajectory" style="width: 100%; border-radius: 8px; margin-bottom: 1em;">
+
+  <h2>Test Results</h2>
+  <ul>
+    <li>🚤 <strong>Trailering time:</strong> &lt;15 seconds</li>
+    <li>🌀 <strong>Angle correction:</strong> ±12° initial offset</li>
+    <li>🧪 <strong>Accuracy:</strong> Y error ±0 cm, X error ±5 cm, θ error ±3°</li>
+    <li>✅ Contact points confirmed; needs further work for trailer-in-motion robustness</li>
+  </ul>
+
+  <h2>Demo Video</h2>
+  <video controls width="100%">
+    <source src="capstone/hmm pt2.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <h2>Gallery</h2>
+  <div style="display: flex; gap: 1em; flex-wrap: wrap;">
+    <img src="images/capstone1.jpg" alt="Prototype side" style="width: 48%; border-radius: 8px;" />
+    <img src="images/capstone2.jpg" alt="Team testing" style="width: 48%; border-radius: 8px;" />
+  </div>
+</div>
+
+<footer>
+  <div class="socials">
+    <a href="https://github.com/yourusername" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="icon"/>
+    </a>
+    <a href="https://linkedin.com/in/yourusername" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" class="icon"/>
+    </a>
+    <a href="mailto:youremail@example.com" target="_blank" title="Email Me">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Mail_%28iOS%29.svg" alt="Email" class="icon"/>
+    </a>
+  </div>
+  <div style="text-align: center; margin-top: 2em; font-size: 0.9em; border-top: 1px solid #333; padding-top: 1em;">
+    © 2025 elixshim
+  </div>
+</footer>
+
+<script>
+  const scrollBtn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    scrollBtn.classList.toggle('show', window.scrollY > 100);
+  });
+</script>
+</body>
+</html>
