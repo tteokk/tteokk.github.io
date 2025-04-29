@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>e's time capsule</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/svg+xml" href="etc/etc.svg" />
   </head>
   <body>
     <nav>
       <div class="logo">
-        <img src="etc.png" alt="Logo" />
+        <img src="etc/etc.svg" alt="Logo" />
       </div>
       <div>
-        <a href="#portfolio">portfolio</a>
+        <a href="#projects">projects</a>
         <a href="2025 resume.pdf" target="_blank">resume</a>
       </div>
-    </nav>
+    </nav>  
 
     <header class="banner">
       <div class="welcome-content">
@@ -30,7 +31,7 @@
     </header>
 
     <div class="container">
-      <section id="portfolio" class="section">
+      <section id="projects" class="section">
         <h2>Projects</h2>
         <div class="grid">
           <div class="project">
@@ -38,26 +39,72 @@
               <img src="capstone/trailer+boat.JPG" alt="Capstone" />
               <div class="project-description">
                 <h3>ENV-ISION</h3>
-                <p>
-                  Autonomous trailering system with AprilTag vision and embedded
-                  control.
-                </p>
+                <p>Autonomous trailering system with AprilTag vision and embedded control.</p>
               </div>
             </a>
           </div>
+        
           <div class="project">
             <a href="mte380.html">
               <img src="mte380/380.png" alt="MTE 380" />
               <div class="project-description">
                 <h3>AUTONOMOUS CAR</h3>
-                <p>
-                  STM32-controlled robot using PID logic, IR/RGB sensors, and
-                  real-time feedback.
-                </p>
+                <p>STM32-controlled robot using PID logic, IR/RGB sensors, and real-time feedback.</p>
+              </div>
+            </a>
+          </div>
+        
+          <div class="project">
+            <a href="limit-switch.html">
+              <img src="images/limit-switch.jpg" alt="Limit Switch Project" />
+              <div class="project-description">
+                <h3>2 AXIS LIMIT SWITCH</h3>
+                <p>STM32 ADC and GPIO project controlling motors with polling interrupts.</p>
+              </div>
+            </a>
+          </div>
+        
+          <div class="project">
+            <a href="glcd-game.html">
+              <img src="images/glcd-game.jpg" alt="GLCD Game" />
+              <div class="project-description">
+                <h3>GLCD GAME</h3>
+                <p>GLCD library game project using threading, mutexes, and joystick inputs.</p>
+              </div>
+            </a>
+          </div>
+        
+          <div class="project">
+            <a href="robot-car.html">
+              <img src="images/robot-car.jpg" alt="Robot Car" />
+              <div class="project-description">
+                <h3>ROBOT CAR</h3>
+                <p>Line-following car project using C programming and hexadecimal instructions.</p>
+              </div>
+            </a>
+          </div>
+        
+          <div class="project">
+            <a href="conveyor.html">
+              <img src="images/conveyor-belt.jpg" alt="Conveyor Belt" />
+              <div class="project-description">
+                <h3>CONVEYOR SYSTEM</h3>
+                <p>Vention CAD and AutoCAD design for a motorized conveyor belt system.</p>
+              </div>
+            </a>
+          </div>
+        
+          <div class="project">
+            <a href="phone-stand.html">
+              <img src="images/phone-stand.jpg" alt="Phone Stand" />
+              <div class="project-description">
+                <h3>PHONE STAND</h3>
+                <p>3D printed SolidWorks design, optimized for tolerances and center of gravity.</p>
               </div>
             </a>
           </div>
         </div>
+        
       </section>
 
       <section id="experience" class="section">
@@ -83,86 +130,50 @@
 
       <section id="contact" class="section">
         <div
-          style="
-            max-width: 550px;
-            margin: 0 auto;
-            padding: 2em;
-            border: 2px solid #dfb1bc;
-            border-radius: 12px;
-            background-color: #fff0f5;
-          "
+          style="max-width: 550px; margin: 0 auto; padding: 2em; border: 2px solid #dfb1bc; border-radius: 12px; background-color: #fff0f5;"
         >
           <h2 style="text-align: center; margin-top: 0">Contact Me</h2>
           <form
             action="https://formspree.io/f/yourformid"
             method="POST"
-            style="display: flex; flex-direction: column; gap: 1em"
+            style="display: flex; flex-direction: column; gap: 1em;"
           >
             <div>
-              <label for="name" style="display: block; margin-bottom: 0.2em"
-                >Name</label
-              >
+              <label for="name" style="display: block; margin-bottom: 0.2em;">Name</label>
               <input
                 type="text"
                 id="name"
                 name="name"
                 placeholder="Your Name"
                 required
-                style="
-                  width: 100%;
-                  padding: 0.5em;
-                  border-radius: 6px;
-                  border: 1px solid #ccc;
-                "
+                style="width: 100%; padding: 0.5em; border-radius: 6px; border: 1px solid #ccc;"
               />
             </div>
             <div>
-              <label for="email" style="display: block; margin-bottom: 0.2em"
-                >Email</label
-              >
+              <label for="email" style="display: block; margin-bottom: 0.2em;">Email</label>
               <input
                 type="email"
                 id="email"
                 name="email"
                 placeholder="Your Email"
                 required
-                style="
-                  width: 100%;
-                  padding: 0.5em;
-                  border-radius: 6px;
-                  border: 1px solid #ccc;
-                "
+                style="width: 100%; padding: 0.5em; border-radius: 6px; border: 1px solid #ccc;"
               />
             </div>
             <div>
-              <label for="message" style="display: block; margin-bottom: 0.2em"
-                >Message</label
-              >
+              <label for="message" style="display: block; margin-bottom: 0.2em;">Message</label>
               <textarea
                 id="message"
                 name="message"
                 placeholder="Your Message"
                 rows="5"
                 required
-                style="
-                  width: 100%;
-                  padding: 0.5em;
-                  border-radius: 6px;
-                  border: 1px solid #ccc;
-                "
+                style="width: 100%; padding: 0.5em; border-radius: 6px; border: 1px solid #ccc;"
               ></textarea>
             </div>
             <button
               type="submit"
-              style="
-                padding: 0.7em;
-                background: #dfb1bc;
-                color: white;
-                border: none;
-                border-radius: 6px;
-                font-weight: bold;
-                cursor: pointer;
-              "
+              style="padding: 0.7em; background: #dfb1bc; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;"
             >
               Send
             </button>
@@ -254,7 +265,7 @@
         });
 
         requestAnimationFrame(() => {
-          updateCarousel(true); // Initial positioning, no animation
+          updateCarousel(true); // Initial positioning
         });
       }
 

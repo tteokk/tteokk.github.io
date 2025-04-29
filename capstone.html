@@ -4,101 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>capstone</title>
-  <style>
-    body { margin: 0; font-family: Arial, sans-serif; background-color: #fff; color: #333; }
-    header, footer { padding: 1em; text-align: center; }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1em;
-      background: #d498a8;
-      color: white;
-    }
-    nav a {
-      color: white;
-      margin: 0 1em;
-      text-decoration: none;
-    }
-    nav .logo {
-      display: flex;
-      align-items: center;
-    }
-    nav .logo img {
-      height: 40px;
-      margin-right: 0.5em;
-    }
-
-    .content {
-      padding: 2em 1em;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    .breadcrumb {
-      margin-bottom: 1em;
-      font-size: 0.9em;
-    }
-    .breadcrumb a {
-      color: #d498a8;
-      text-decoration: none;
-    }
-
-    .highlight-box {
-      border: 2px solid #dfb1bc;
-      background-color: #fff0f5;
-      border-radius: 8px;
-      padding: 1em;
-    }
-
-    .scroll-top {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      font-size: 1.5em;
-      text-decoration: none;
-      color: #d498a8;
-      background-color: white;
-      border: 2px solid #d498a8;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      z-index: 1000;
-    }
-    .scroll-top.show {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    footer {
-      background-color: #0d0f14;
-      color: white;
-      padding: 2em 1em;
-    }
-    .socials {
-      margin-top: 1em;
-      display: flex;
-      justify-content: center;
-      gap: 1em;
-    }
-    .icon {
-      width: 24px;
-      height: 24px;
-    }
-  </style>
+  <link rel="stylesheet" href="project-styles.css" />
 </head>
 <body>
 <a class="scroll-top" href="#top" id="scrollTop" title="Back to top">↑</a>
 
 <nav>
   <div class="logo">
-    <img src="etc.png" alt="Logo" />
+    <img src="etc/etc.png" alt="Logo" />
   </div>
   <div>
     <a href="index.html#portfolio">portfolio</a>
@@ -108,7 +21,7 @@
 
 <div class="content">
   <div class="breadcrumb">
-    <a href="index.html">← Back to Home</a>
+    <a href="index.html#portfolio">← Back to Projects</a>
   </div>
 
   <h1>Capstone Project: ENV-ISION</h1>
@@ -118,9 +31,9 @@
 
   <h2>Team & Concept</h2>
   <ul>
-    <li>Designed by 5 Mechatronics students (Mech, Electrical, Embedded, Controls)</li>
+    <li>Designed by 5 Mechatronics students (Mechanical, Electrical, Embedded, Controls)</li>
     <li>Single-person autonomous trailering (vs typical 2-person manual process)</li>
-    <li>Camera detects targets → processes position → feeds controller to drive motors</li>
+    <li>Camera detects trailer target → computes pose → feeds controller to drive thrusters</li>
   </ul>
 
   <h2>Breakdown by Discipline</h2>
@@ -129,25 +42,42 @@
   <p>Designed the waterproof chassis, latch, and thruster layout. CAD in SolidWorks, fabricated in acrylic & aluminum.</p>
 
   <h3>🔌 Electrical</h3>
-  <p>Managed LiPo battery layout, ESC setup, and power safety. Designed wiring schematics and distribution.</p>
+  <p>Managed LiPo battery system, ESC setup, fusing, and waterproof electronics integration. Designed wiring schematics and distribution boards.</p>
 
   <div class="highlight-box">
-    <h3>💻 Embedded</h3>
-    <p><strong>My focus:</strong> Wrote firmware for serial communication between Raspberry Pi and Arduino. Controlled 3 thrusters via UART and implemented safety shutdown procedures.</p>
+    <h3>💻 Embedded Systems (My Focus)</h3>
+    <ul>
+      <li>Established fast, reliable UART communication between Raspberry Pi and Arduino microcontrollers.</li>
+      <li>Processed AprilTag vision data using OpenCV, with camera calibration and pose frame transformations.</li>
+      <li>Designed a robust data packet protocol for motor PWM signals, including delimiter-based error handling and handshake synchronization.</li>
+      <li>Optimized camera processing by disabling live video feed and tuning resolution for real-time performance.</li>
+      <li>Implemented Butterworth filters to reduce pose data noise and stabilize motor control.</li>
+      <li>Tuned PID controllers for heading (θ) and forward movement (y-axis) using filtered vision data.</li>
+      <li>Tested and debugged embedded systems under real-world disturbances (wind, water currents).</li>
+    </ul>
   </div>
 
   <h3>🧠 Controls</h3>
-  <p>Used AprilTag vision feedback to compute boat position and orientation. PID controller calculated motor duty cycles for 3 DOF movement.</p>
-
+  <p>
+  Implemented a dynamic feed-forward and PID-based control system for precise autonomous docking. 
+  </p>
+  <ul>
+    <li>Created a dynamic trajectory planner to generate time-dependent position targets for x, y, and θ (heading) during trailering.</li>
+    <li>Designed a feed-forward controller to compute required accelerations based on target trajectories and boat dynamics.</li>
+    <li>Implemented 3 PID controllers (x, y, θ) tuned independently to minimize steady-state error and stabilize approach under real-world disturbances.</li>
+    <li>Applied Butterworth low-pass filters to AprilTag vision data to remove high-frequency noise while preserving critical motion signals.</li>
+    <li>Prioritized tuning for θ (heading) first, then y (forward), then x (lateral), ensuring smooth correction without oscillations.</li>
+    <li>Validated final control performance achieving ±0 cm error in y-position, ±5 cm error in x-position, and ±3° orientation error during testing.</li>
+  </ul>
+  
   <h2>System Diagrams</h2>
   <img src="capstone/algorithm-flowchart-boat.png" alt="Boat Algorithm Flowchart" style="width: 100%; border-radius: 8px; margin: 1em 0;">
   <img src="capstone/block-diagram-boat.png" alt="Block Diagram" style="width: 100%; border-radius: 8px; margin-bottom: 1em;">
 
   <h2>Simulation Results</h2>
   <ul>
-    <li>Simulated crosswind disturbance of 5N was successfully compensated</li>
-    <li>PID control ensures steady state error of ~0</li>
-    <li>Realistic motion paths under known system dynamics</li>
+    <li>Simulated 5N crosswind disturbance successfully compensated with PID control.</li>
+    <li>Steady-state position error ≈ 0, with realistic trajectories under dynamic system modeling.</li>
   </ul>
   <img src="capstone/simulation-trajectory.png" alt="Simulated Trajectory" style="width: 100%; border-radius: 8px; margin-bottom: 1em;">
 
@@ -156,7 +86,7 @@
     <li>🚤 <strong>Trailering time:</strong> &lt;15 seconds</li>
     <li>🌀 <strong>Angle correction:</strong> ±12° initial offset</li>
     <li>🧪 <strong>Accuracy:</strong> Y error ±0 cm, X error ±5 cm, θ error ±3°</li>
-    <li>✅ Contact points confirmed; needs further work for trailer-in-motion robustness</li>
+    <li>✅ Contact points successfully confirmed at latching mechanism</li>
   </ul>
 
   <h2>Demo Video</h2>
@@ -167,8 +97,8 @@
 
   <h2>Gallery</h2>
   <div style="display: flex; gap: 1em; flex-wrap: wrap;">
-    <img src="images/capstone1.jpg" alt="Prototype side" style="width: 48%; border-radius: 8px;" />
-    <img src="images/capstone2.jpg" alt="Team testing" style="width: 48%; border-radius: 8px;" />
+    <img src="images/capstone1.jpg" alt="Prototype side view" style="width: 48%; border-radius: 8px;" />
+    <img src="images/capstone2.jpg" alt="Team testing view" style="width: 48%; border-radius: 8px;" />
   </div>
 </div>
 

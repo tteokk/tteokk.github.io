@@ -33,6 +33,39 @@ nav .logo img {
   margin-right: 0.5em;
 }
 
+.side-nav {
+  position: fixed;
+  top: 50vh;
+  left: 20px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  z-index: 1000;
+}
+
+.side-nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #fff0f5;
+  border: 2px solid #dfb1bc;
+  border-radius: 50%;
+  text-decoration: none;
+  color: #d498a8;
+  font-size: 1.5em;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.side-nav a:hover {
+  background-color: #d498a8;
+  color: white;
+  transform: scale(1.1);
+}
+
+
 .banner {
   padding: 4em 1em;
   background: #efd0d8;
@@ -169,4 +202,8 @@ footer {
   font-size: 0.9em;
   border-top: 1px solid #333;
   padding-top: 1em;
+}
+
+html {
+  scroll-behavior: smooth;
 }
