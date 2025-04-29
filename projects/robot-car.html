@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Robot Car</title>
+  <link rel="stylesheet" href="../styles/nav-styles.css" />
+  <link rel="stylesheet" href="../styles/footer-styles.css" />
+  <link rel="stylesheet" href="../styles/project-styles.css" />
+</head>
+<body>
+
+<a class="scroll-top" href="#top" id="scrollTop" title="Back to top">↑</a>
+
+<div id="nav-container"></div>
+
+<div class="content">
+  <div class="breadcrumb">
+    <a href="../index.html#projects">← Back to Projects</a>
+  </div>
+
+  <h1>Robot Car</h1>
+
+  <p>
+    This robot car project was an exercise in low-level embedded programming, where I implemented line-following behavior using C and hexadecimal instructions.
+    The car used basic sensor input and motor control logic to navigate a course autonomously.
+  </p>
+
+  <img src="../images/robot-car.jpg" alt="Robot Car" class="main-image" />
+
+  <h2>Embedded Systems Focus</h2>
+
+  <div class="highlight-box">
+    <ul>
+      <li>Programmed microcontroller in C with direct register manipulation and hexadecimal opcodes.</li>
+      <li>Used analog sensors to detect black tape lines and route-following edges.</li>
+      <li>Controlled motors using basic PWM and conditional logic based on sensor thresholds.</li>
+      <li>Created a simple instruction parser using lookup tables to trigger behavior by sensor states.</li>
+      <li>Debugged behavior using onboard LEDs and step-wise code execution during lab testing.</li>
+    </ul>
+  </div>
+
+  <h2>Testing and Results</h2>
+  <ul>
+    <li>✅ Car successfully completed track segments without user input.</li>
+    <li>🧪 Sensor calibration improved turn responsiveness and tracking accuracy.</li>
+    <li>⚡ Observed CPU cycle efficiency and control stability through real-time feedback.</li>
+  </ul>
+
+  <h2>Gallery</h2>
+  <div class="gallery">
+    <img src="../images/robot-car.jpg" alt="Robot car chassis and line sensors">
+  </div>
+</div>
+
+<div id="footer-container"></div>
+
+<script>
+  // Scroll-to-top visibility
+  const scrollBtn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    scrollBtn.classList.toggle('show', window.scrollY > 100);
+  });
+
+  // Load navbar and footer
+  fetch("../reusable/nav.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("nav-container").innerHTML = data;
+    });
+
+  fetch("../reusable/footer.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("footer-container").innerHTML = data;
+    });
+</script>
+
+</body>
+</html>

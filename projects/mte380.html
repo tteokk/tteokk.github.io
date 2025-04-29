@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MTE 380: Autonomous Line Following Robot</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="etc/etc.svg" />
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background-color: #fff; color: #333; }
+    header, footer { padding: 1em; text-align: center; }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1em;
+      background: #d498a8;
+      color: white;
+    }
+    nav a {
+      color: white;
+      margin: 0 1em;
+      text-decoration: none;
+    }
+    nav .logo {
+      display: flex;
+      align-items: center;
+    }
+    nav .logo img {
+      height: 40px;
+      margin-right: 0.5em;
+    }
+    .content {
+      padding: 2em 1em;
+      max-width: 800px;
+      margin: auto;
+    }
+    .breadcrumb {
+      margin-bottom: 1em;
+      font-size: 0.9em;
+    }
+    .breadcrumb a {
+      color: #d498a8;
+      text-decoration: none;
+    }
+    .highlight-box {
+      border: 2px solid #dfb1bc;
+      background-color: #fff0f5;
+      border-radius: 8px;
+      padding: 1em;
+    }
+    .scroll-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-size: 1.5em;
+      text-decoration: none;
+      color: #d498a8;
+      background-color: white;
+      border: 2px solid #d498a8;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 1000;
+    }
+    .scroll-top.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    footer {
+      background-color: #0d0f14;
+      color: white;
+      padding: 2em 1em;
+    }
+    .socials {
+      margin-top: 1em;
+      display: flex;
+      justify-content: center;
+      gap: 1em;
+    }
+    .icon {
+      width: 24px;
+      height: 24px;
+    }
+  </style>
+</head>
+<body>
+<a class="scroll-top" href="#top" id="scrollTop" title="Back to top">↑</a>
+
+<nav>
+  <div class="logo">
+    <img src="../etc/etc-removebg-preview.png" alt="Logo" />
+  </div>
+  <div>
+    <a href="index.html#portfolio">portfolio</a>
+    <a href="2025 resume.pdf" target="_blank">resume</a>
+  </div>
+</nav>
+
+<div class="content">
+  <div class="breadcrumb">
+    <a href="index.html#portfolio">← Back to Projects</a>
+  </div>
+
+  <h1>MTE 380: Autonomous Line Following Robot</h1>
+  <p>
+    In our MTE 380 project, we designed and built a two-wheeled autonomous robot capable of navigating a line-following course, detecting and retrieving a Lego figure, and delivering it to a safe zone. The robot was built around an STM32 Nucleo-64 microcontroller and optimized for real-time control, task accuracy, and robustness to surface noise. My focus was on embedded firmware development and PID control implementation.
+  </p>
+
+  <img src="mte380/robot.jpg" alt="Robot Photo" style="width: 100%; border-radius: 8px; margin: 2em 0;"/>
+
+  <h2>Project Overview</h2>
+  <ul>
+    <li>Designed to fit within 8x8x8 inches and operate fully autonomously with no cameras allowed.</li>
+    <li>Used STM32F401 Nucleo-64 for real-time motor and sensor control with PWM and ADC integration.</li>
+    <li>Implemented a PID controller for dynamic steering and course correction based on RGB sensor feedback.</li>
+    <li>State machine logic allowed seamless transitions between line-following, object detection, pickup, and return routines.</li>
+  </ul>
+
+  <h2>Breakdown by Discipline</h2>
+
+  <h3>⚙️ Mechanical</h3>
+  <p>3D printed chassis and servo-driven mechanical arm. Emphasized low center of gravity and compact, modular stacking for stability and weight reduction.</p>
+
+  <h3>🔌 Electrical</h3>
+  <p>Integrated three RGB sensors for line and zone detection, an IR sensor for figure pickup, LiPo power supply, motor drivers, and robust I/O pin mapping on the STM32 board.</p>
+
+  <div class="highlight-box">
+    <h3>💻 Embedded Systems (My Focus)</h3>
+    <ul>
+      <li>Programmed the STM32 microcontroller using C to control PWM motor outputs and ADC sensor inputs.</li>
+      <li>Developed a real-time polling loop and optimized sensor reading speed for consistent feedback.</li>
+      <li>Implemented UART debugging tools to verify sensor stability, PWM timing, and task sequencing.</li>
+      <li>Designed a reliable state machine architecture to manage task execution autonomously.</li>
+    </ul>
+  </div>
+
+  <div class="highlight-box" style="margin-top: 1em;">
+    <h3>🧠 Controls (My Focus)</h3>
+    <ul>
+      <li>Designed and tuned PID controllers to minimize oscillations and track the line reliably even over uneven surfaces.</li>
+      <li>Prioritized heading (yaw) control first to stabilize robot alignment, then layered position (x, y) corrections.</li>
+      <li>Switched from bang-bang to PID strategy after field testing showed improved reliability and reduced overshoot.</li>
+      <li>Focused on minimizing sensor-processing loop times to ~25ms for better real-time control response.</li>
+    </ul>
+  </div>
+
+  <h2>System Diagram</h2>
+  <img src="mte380/system-flow.png" alt="System Diagram" style="width: 100%; border-radius: 8px; margin-bottom: 1em;"/>
+
+  <h2>Testing and Results</h2>
+  <ul>
+    <li>✅ Line following and figure pickup completed successfully in 66% of test runs before competition day.</li>
+    <li>📉 Final PID tuning achieved stable tracking with minimal deviation on sharp turns.</li>
+    <li>🧪 UART debug outputs verified ADC sensor consistency and PWM motor control accuracy.</li>
+    <li>📦 Gripper task triggers were timed precisely to achieve object pickup/drop-off within target zones.</li>
+  </ul>
+
+  <h2>Demo Video</h2>
+  <video controls width="100%">
+    <source src="mte380/line-following-demo.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <h2>Gallery</h2>
+  <div style="display: flex; gap: 1em; flex-wrap: wrap;">
+    <img src="images/mte380-robot1.jpg" alt="Robot chassis" style="width: 48%; border-radius: 8px;"/>
+    <img src="images/mte380-robot2.jpg" alt="Sensor array view" style="width: 48%; border-radius: 8px;"/>
+  </div>
+</div>
+
+<footer>
+  <div class="socials">
+    <a href="https://github.com/yourusername" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="icon"/>
+    </a>
+    <a href="https://linkedin.com/in/yourusername" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" class="icon"/>
+    </a>
+    <a href="mailto:youremail@example.com" target="_blank" title="Email Me">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Mail_%28iOS%29.svg" alt="Email" class="icon"/>
+    </a>
+  </div>
+  <div style="text-align: center; margin-top: 2em; font-size: 0.9em; border-top: 1px solid #333; padding-top: 1em;">
+    © 2025 elixshim
+  </div>
+</footer>
+
+<script>
+  const scrollBtn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    scrollBtn.classList.toggle('show', window.scrollY > 100);
+  });
+</script>
+</body>
+</html>

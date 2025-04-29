@@ -1,0 +1,137 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  color: #333;
+}
+
+header, footer {
+  padding: 1em;
+  text-align: center;
+}
+
+.content {
+  padding: 2em 1em;
+  max-width: 800px;
+  margin: auto;
+}
+
+.breadcrumb {
+  margin-bottom: 1em;
+  font-size: 0.9em;
+}
+
+.breadcrumb a {
+  color: #d498a8;
+  text-decoration: none;
+}
+
+.highlight-box {
+  border: 2px solid #dfb1bc;
+  background-color: #fff0f5;
+  border-radius: 8px;
+  padding: 1em;
+}
+
+.main-image {
+  width: 100%;
+  border-radius: 8px;
+  margin: 2em 0;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.gallery img {
+  width: 48%;
+  border-radius: 8px;
+}
+
+.scroll-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 1.5em;
+  text-decoration: none;
+  color: #d498a8;
+  background-color: white;
+  border: 2px solid #d498a8;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+.scroll-top.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.project-sidebar {
+  position: fixed;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  width: 180px;
+  background: #fff0f5;
+  border: 2px solid #dfb1bc;
+  border-radius: 16px; /* rounder! */
+  padding: 1em;
+  z-index: 10;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  animation: slideInLeft 0.4s ease forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translate(-50%, -50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-50%);
+    opacity: 1;
+  }
+}
+
+.project-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.project-sidebar ul li {
+  margin-bottom: 1em;
+}
+
+.project-sidebar ul li a {
+  text-decoration: none;
+  color: #d498a8;
+  font-weight: bold;
+  transition: background 0.3s, color 0.3s;
+  display: block;
+  padding: 0.5em 1em;
+  border-radius: 10px;
+}
+
+.project-sidebar ul li a:hover {
+  background-color: #d498a8;
+  color: white;
+}
+
+.project-sidebar ul li a.active {
+  background-color: #d498a8;
+  color: white;
+}
