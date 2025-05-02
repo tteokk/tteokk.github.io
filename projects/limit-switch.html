@@ -22,43 +22,41 @@
   <h1>2 Axis Limit Switch</h1>
 
   <p>
-    This embedded systems project controls two motors using a microcontroller (STM32F401) and a pair of limit switches.
-    The system uses analog-to-digital conversion (ADC) to read input signals and uses GPIO polling interrupts to stop motors when they hit mechanical limits.
+    This embedded systems project controlled two motors using a microcontroller (STM32F401RE) and a set of limit switches. The motors stopped automatically when the switches were triggered at the ends of their respective axes.
   </p>
-
+  
   <img src="../images/limit-switch.jpg" alt="2 Axis Limit Switch Prototype" class="main-image" />
-
+  
   <h2>Overview</h2>
   <ul>
-    <li>Controlled 2-axis movement with position-limiting interrupts for safety and precision.</li>
-    <li>Used STM32 microcontroller and custom C firmware to handle real-time motor response.</li>
-    <li>Verified limit switch triggering and safe stopping through GPIO state checks.</li>
+    <li>Controlled 2-axis motor movement with limit switches to stop travel at end positions.</li>
+    <li>Used STM32 microcontroller and custom C code to respond to switch inputs.</li>
+    <li>Verified correct stopping behavior by manually triggering switches during operation.</li>
   </ul>
-
+  
   <h2>Embedded Systems Focus</h2>
-
+  
   <div class="highlight-box">
     <ul>
-      <li>Configured STM32 GPIO pins to detect limit switch triggers with pull-down resistors.</li>
-      <li>Used ADC channels to read analog voltage levels for position sensing.</li>
-      <li>Implemented interrupt-based polling logic to stop motor PWM output when limits were hit.</li>
-      <li>Wrote state machine logic to move, stop, and reset the motor positions safely.</li>
-      <li>Tested using UART output and oscilloscope to verify GPIO signal timing and correctness.</li>
+      <li>Configured STM32 GPIO pins with pull-up resistors to read switch state.</li>
+      <li>Used interrupts to respond to limit switch activation and stop motor output.</li>
+      <li>Implemented motor stop logic in the interrupt service routines (ISRs).</li>
+      <li>Verified function through oscilloscope readings and LED indicators.</li>
     </ul>
-  </div>  
-
-  <h2>Testing and Results</h2>
+  </div>
+  
+  <!-- <h2>Testing and Results</h2>
   <ul>
-    <li>✅ Successfully stopped motors at limit conditions with < 10ms response time.</li>
-    <li>🧪 Verified real-time GPIO signal response using LEDs and UART output logging.</li>
-    <li>📈 Reduced false triggers by debouncing inputs and adjusting logic thresholds.</li>
+    <li>✅ Motors stopped reliably when switches were triggered, confirming correct interrupt handling.</li>
+    <li>🧪 Observed switch input changes via UART and LEDs during testing.</li>
+    <li>📈 Debouncing techniques were considered but not fully implemented in code.</li>
   </ul>
-
+  
   <h2>Gallery</h2>
   <div class="gallery">
     <img src="../images/limit-switch.jpg" alt="Prototype with motor wiring">
-    <!-- Add more images if desired -->
-  </div>
+  </div> -->
+  
 </div>
 
 <div id="footer-container"></div>

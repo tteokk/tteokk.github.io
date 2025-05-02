@@ -4,9 +4,11 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MTE 380: Autonomous Line Following Robot</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="../styles/nav-styles.css" />
+  <link rel="stylesheet" href="../styles/footer-styles.css" />
+  <link rel="stylesheet" href="../styles/project-styles.css" />
   <link rel="icon" type="image/svg+xml" href="etc/etc.svg" />
-  <style>
+  <!-- <style>
     body { margin: 0; font-family: Arial, sans-serif; background-color: #fff; color: #333; }
     header, footer { padding: 1em; text-align: center; }
     nav {
@@ -87,24 +89,40 @@
       width: 24px;
       height: 24px;
     }
-  </style>
+  </style> -->
 </head>
 <body>
 <a class="scroll-top" href="#top" id="scrollTop" title="Back to top">↑</a>
 
-<nav>
+<!-- <nav>
   <div class="logo">
     <img src="../etc/etc-removebg-preview.png" alt="Logo" />
   </div>
   <div>
-    <a href="index.html#portfolio">portfolio</a>
+    <a href="index.html#projects">projects</a>
     <a href="2025 resume.pdf" target="_blank">resume</a>
+  </div>
+</nav> -->
+
+<!-- <div id="nav-container"></div> -->
+
+<nav>
+  <div class="logo">
+    <a href="/index.html">
+      <img src="../etc/etc-white.png" alt="Logo" />
+    </a>
+  </div>
+  <div>
+    <a href="/index.html#projects">projects</a>
+    <a href="/index.html#experience">co-op experience</a>
+    <a href="/index.html#about">about me</a>
+    <a href="../2025 resume controls.pdf" target="_blank">resume</a>
   </div>
 </nav>
 
 <div class="content">
   <div class="breadcrumb">
-    <a href="index.html#portfolio">← Back to Projects</a>
+    <a href="/index.html#projects">← Back to Projects</a>
   </div>
 
   <h1>MTE 380: Autonomous Line Following Robot</h1>
@@ -112,7 +130,7 @@
     In our MTE 380 project, we designed and built a two-wheeled autonomous robot capable of navigating a line-following course, detecting and retrieving a Lego figure, and delivering it to a safe zone. The robot was built around an STM32 Nucleo-64 microcontroller and optimized for real-time control, task accuracy, and robustness to surface noise. My focus was on embedded firmware development and PID control implementation.
   </p>
 
-  <img src="mte380/robot.jpg" alt="Robot Photo" style="width: 100%; border-radius: 8px; margin: 2em 0;"/>
+  <img src="images/mte380/380_1.png" alt="Robot Photo" style="width: 100%; border-radius: 8px; margin: 2em 0;"/>
 
   <h2>Project Overview</h2>
   <ul>
@@ -144,58 +162,82 @@
     <h3>🧠 Controls (My Focus)</h3>
     <ul>
       <li>Designed and tuned PID controllers to minimize oscillations and track the line reliably even over uneven surfaces.</li>
-      <li>Prioritized heading (yaw) control first to stabilize robot alignment, then layered position (x, y) corrections.</li>
+      <!-- <li>Prioritized heading (yaw) control first to stabilize robot alignment, then layered position (x, y) corrections.</li> -->
       <li>Switched from bang-bang to PID strategy after field testing showed improved reliability and reduced overshoot.</li>
       <li>Focused on minimizing sensor-processing loop times to ~25ms for better real-time control response.</li>
     </ul>
   </div>
 
-  <h2>System Diagram</h2>
-  <img src="mte380/system-flow.png" alt="System Diagram" style="width: 100%; border-radius: 8px; margin-bottom: 1em;"/>
+  <!-- <h2>System Diagram</h2>
+  <img src="mte380/system-flow.png" alt="System Diagram" style="width: 100%; border-radius: 8px; margin-bottom: 1em;"/> -->
 
-  <h2>Testing and Results</h2>
+  <!-- <h2>Testing and Results</h2>
   <ul>
     <li>✅ Line following and figure pickup completed successfully in 66% of test runs before competition day.</li>
     <li>📉 Final PID tuning achieved stable tracking with minimal deviation on sharp turns.</li>
     <li>🧪 UART debug outputs verified ADC sensor consistency and PWM motor control accuracy.</li>
     <li>📦 Gripper task triggers were timed precisely to achieve object pickup/drop-off within target zones.</li>
-  </ul>
+  </ul> -->
 
-  <h2>Demo Video</h2>
+  <!-- <h2>Demo Video</h2>
   <video controls width="100%">
     <source src="mte380/line-following-demo.mp4" type="video/mp4">
     Your browser does not support the video tag.
-  </video>
+  </video> -->
 
   <h2>Gallery</h2>
   <div style="display: flex; gap: 1em; flex-wrap: wrap;">
-    <img src="images/mte380-robot1.jpg" alt="Robot chassis" style="width: 48%; border-radius: 8px;"/>
-    <img src="images/mte380-robot2.jpg" alt="Sensor array view" style="width: 48%; border-radius: 8px;"/>
+    <!-- <img src="images/mte380/380_3.png" alt="Robot chassis" style="width: 48%; border-radius: 8px;"/> -->
+    <img src="images/mte380/IMG_0035_cropped.jpg" alt="Car" style="width: 48%; border-radius: 8px;"/>
   </div>
 </div>
 
-<footer>
-  <div class="socials">
-    <a href="https://github.com/yourusername" target="_blank">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="icon"/>
-    </a>
-    <a href="https://linkedin.com/in/yourusername" target="_blank">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" class="icon"/>
-    </a>
-    <a href="mailto:youremail@example.com" target="_blank" title="Email Me">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Mail_%28iOS%29.svg" alt="Email" class="icon"/>
-    </a>
-  </div>
-  <div style="text-align: center; margin-top: 2em; font-size: 0.9em; border-top: 1px solid #333; padding-top: 1em;">
-    © 2025 elixshim
-  </div>
-</footer>
+<!-- <div id="footer-container"></div> -->
+
+<div style="text-align: center; padding: 1em 1em 1em; background-color: #0d0f14; color: white;">
+  © 2025 elixshim
+</div>
 
 <script>
+  // Scroll-to-top visibility
   const scrollBtn = document.getElementById('scrollTop');
   window.addEventListener('scroll', () => {
     scrollBtn.classList.toggle('show', window.scrollY > 100);
   });
+
+  // Load navbar
+  fetch("../reusable/nav.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("nav-container").innerHTML = data;
+    });
+
+  // Load footer
+  fetch("../reusable/footer.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("footer-container").innerHTML = data;
+    });
+
+  // Load project sidebar
+  fetch("project-sidebar.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("sidebar-container").innerHTML = data;
+
+      // Highlight current project in sidebar
+      const page = window.location.pathname.split("/").pop().split(".")[0];
+      const activeLink = document.getElementById(`link-${page}`);
+      if (activeLink) {
+        activeLink.classList.add("active");
+      }
+    });
 </script>
+<!-- <script>
+  const scrollBtn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    scrollBtn.classList.toggle('show', window.scrollY > 100);
+  });
+</script> -->
 </body>
 </html>
