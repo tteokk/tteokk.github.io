@@ -11,9 +11,9 @@ body {
   padding: 0 1em;
 }
 
-/* #projects, #experience, #about {
+#projects, #experience, #about {
   scroll-margin-top: 40px;
-} */
+}
 
 .banner {
   padding: 4em 1em;
