@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Discord Bots</title>
+  <link rel="stylesheet" href="../styles/nav-styles.css" />
+  <link rel="stylesheet" href="../styles/footer-styles.css" />
+  <link rel="stylesheet" href="../styles/project-styles.css" />
+</head>
+<body>
+
+<a class="scroll-top" href="#top" id="scrollTop" title="Back to top">↑</a>
+
+<div id="nav-container"></div>
+
+<div class="content">
+  <div class="breadcrumb">
+    <a href="../index.html#projects">← Back to Projects</a>
+  </div>
+
+  <h1>Discord Bots</h1>
+
+  <p>
+    A collection of custom Discord bots built for personal use and small communities. These bots handled everything from motivational quotes to Pomodoro timers and friendly exam betting games among friends, helping automate fun and productivity features on Discord servers.
+  </p>
+
+  <img src="../images/discord-bot.jpg" alt="Custom Discord Bots" class="main-image" />
+
+  <h2>Software Development Focus</h2>
+
+  <div class="highlight-box">
+    <ul>
+      <li>Developed bots in Python using the Discord.py API and deployed locally or on cloud services.</li>
+      <li>Created event-driven commands and responses triggered by user input and server events.</li>
+      <li>Built a Quote Bot that sent random quotes paired with random idol images.</li>
+      <li>Designed a Pomodoro Timer Bot that accepted time input and played a song on session end.</li>
+      <li>Implemented an Exam Bet Bot that tracked users' score guesses and calculated winner statistics over time.</li>
+    </ul>
+  </div>
+
+  <h2>Testing and Results</h2>
+  <ul>
+    <li>🎯 Increased user engagement and created a more fun study environment among friends.</li>
+    <li>✅ All bots passed basic functional tests for command recognition and response timing.</li>
+    <li>🌐 Gained experience with Discord APIs, asynchronous programming, and lightweight deployments.</li>
+  </ul>
+
+  <h2>Gallery</h2>
+  <div class="gallery">
+    <img src="../images/discord-bot.jpg" alt="Example of Discord bot interactions">
+  </div>
+</div>
+
+<div id="footer-container"></div>
+
+<script>
+  // Scroll-to-top visibility
+  const scrollBtn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    scrollBtn.classList.toggle('show', window.scrollY > 100);
+  });
+
+  // Load navbar and footer
+  fetch("../reusable/nav.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("nav-container").innerHTML = data;
+    });
+
+  fetch("../reusable/footer.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("footer-container").innerHTML = data;
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GLCD Game</title>
+  <link rel="stylesheet" href="../styles/nav-styles.css" />
+  <link rel="stylesheet" href="../styles/footer-styles.css" />
+  <link rel="stylesheet" href="../styles/project-styles.css" />
+</head>
+<body>
+
+<a class="scroll-top" href="#top" id="scrollTop" title="Back to top">↑</a>
+
+<div id="nav-container"></div>
+
+<div class="content">
+  <div class="breadcrumb">
+    <a href="../index.html#projects">← Back to Projects</a>
+  </div>
+
+  <h1>GLCD Game</h1>
+
+  <p>
+    A custom game built on an STM32 development board using a graphical LCD (GLCD), joystick, LEDs, and push buttons. This project focused on real-time embedded programming, concurrency with threads and mutexes, and low-level display control in C.
+  </p>
+
+  <img src="../images/glcd-game.jpg" alt="GLCD Game Running" class="main-image" />
+
+  <h2>Embedded Systems & Concurrency</h2>
+
+  <div class="highlight-box">
+    <ul>
+      <li>Programmed game logic in C using STM32 microcontroller with direct register access.</li>
+      <li>Interfaced with a KS0108-based GLCD using parallel data bus and control signals.</li>
+      <li>Handled real-time joystick inputs using ADC and used push buttons for in-game actions.</li>
+      <li>Implemented multi-threaded control using RTOS-style tasks and synchronization via mutexes.</li>
+      <li>Used structs, pointers, and memory-mapped I/O to efficiently manage frame drawing and movement.</li>
+      <li>Debugged concurrency issues like shared data race conditions using LED state indicators.</li>
+    </ul>
+  </div>
+
+  <h2>Testing and Results</h2>
+  <ul>
+    <li>✅ Game ran smoothly with joystick input updates < 20ms latency.</li>
+    <li>🧪 Mutex implementation prevented concurrent frame buffer corruption.</li>
+    <li>🎮 Push-button input for reset and LED states used to track thread synchronization.</li>
+  </ul>
+
+  <h2>Gallery</h2>
+  <div class="gallery">
+    <img src="../images/glcd-game.jpg" alt="GLCD game running on STM32">
+    <!-- Add additional screenshots if needed -->
+  </div>
+</div>
+
+<div id="footer-container"></div>
+
+<script>
+  // Scroll-to-top visibility
+  const scrollBtn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    scrollBtn.classList.toggle('show', window.scrollY > 100);
+  });
+
+  // Load navbar and footer
+  fetch("../reusable/nav.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("nav-container").innerHTML = data;
+    });
+
+  fetch("../reusable/footer.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("footer-container").innerHTML = data;
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Conveyor System</title>
+  <link rel="stylesheet" href="../styles/nav-styles.css" />
+  <link rel="stylesheet" href="../styles/footer-styles.css" />
+  <link rel="stylesheet" href="../styles/project-styles.css" />
+</head>
+<body>
+
+<a class="scroll-top" href="#top" id="scrollTop" title="Back to top">↑</a>
+
+<div id="nav-container"></div>
+
+<div class="content">
+  <div class="breadcrumb">
+    <a href="../index.html#projects">← Back to Projects</a>
+  </div>
+
+  <h1>Conveyor Belt System</h1>
+
+  <p>
+    This mechanical design project involved creating a functional conveyor belt system using Vention and AutoCAD.
+    I designed the layout to meet constraints related to motor mounting, weight distribution, and component selection, then created technical drawings for fabrication.
+  </p>
+
+  <img src="../images/conveyor-belt.jpg" alt="CAD of Conveyor System" class="main-image" />
+
+  <h2>Mechanical Design Focus</h2>
+
+  <div class="highlight-box">
+    <ul>
+      <li>Designed a modular conveyor system using Vention's online 3D configurator and mechanical part library.</li>
+      <li>Selected appropriate fasteners, shafts, pulleys, and extrusions to meet design specs.</li>
+      <li>Created 2D technical drawings in AutoCAD to detail shaft placement and tolerances.</li>
+      <li>Calculated spacing, torque loads, and support structure to ensure safe operation and stability.</li>
+      <li>Optimized layout for minimal part count and easy motor integration using motor brackets and tensioners.</li>
+    </ul>
+  </div>
+
+  <h2>Testing and Results</h2>
+  <ul>
+    <li>📐 CAD design verified through dimensional checks and fit simulations in Vention software.</li>
+    <li>✅ All components compatible and prepared for physical prototyping with standard hardware.</li>
+    <li>🧮 Design documentation ready for future integration of sensors or control logic.</li>
+  </ul>
+
+  <h2>Gallery</h2>
+  <div class="gallery">
+    <img src="../images/conveyor-belt.jpg" alt="Vention conveyor CAD model">
+  </div>
+</div>
+
+<div id="footer-container"></div>
+
+<script>
+  // Scroll-to-top visibility
+  const scrollBtn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    scrollBtn.classList.toggle('show', window.scrollY > 100);
+  });
+
+  // Load navbar and footer
+  fetch("../reusable/nav.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("nav-container").innerHTML = data;
+    });
+
+  fetch("../reusable/footer.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("footer-container").innerHTML = data;
+    });
+</script>
+
+</body>
+</html>

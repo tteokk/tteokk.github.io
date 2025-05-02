@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>2 Axis Limit Switch</title>
+  <link rel="stylesheet" href="../styles/nav-styles.css" />
+  <link rel="stylesheet" href="../styles/footer-styles.css" />
+  <link rel="stylesheet" href="../styles/project-styles.css" />
+</head>
+<body>
+
+<a class="scroll-top" href="#top" id="scrollTop" title="Back to top">↑</a>
+
+<div id="nav-container"></div>
+
+<div class="content">
+  <div class="breadcrumb">
+    <a href="../index.html#projects">← Back to Projects</a>
+  </div>
+
+  <h1>2 Axis Limit Switch</h1>
+
+  <p>
+    This embedded systems project controlled two motors using a microcontroller (STM32F401RE) and a set of limit switches. The motors stopped automatically when the switches were triggered at the ends of their respective axes.
+  </p>
+  
+  <img src="../images/limit-switch.jpg" alt="2 Axis Limit Switch Prototype" class="main-image" />
+  
+  <h2>Overview</h2>
+  <ul>
+    <li>Controlled 2-axis motor movement with limit switches to stop travel at end positions.</li>
+    <li>Used STM32 microcontroller and custom C code to respond to switch inputs.</li>
+    <li>Verified correct stopping behavior by manually triggering switches during operation.</li>
+  </ul>
+  
+  <h2>Embedded Systems Focus</h2>
+  
+  <div class="highlight-box">
+    <ul>
+      <li>Configured STM32 GPIO pins with pull-up resistors to read switch state.</li>
+      <li>Used interrupts to respond to limit switch activation and stop motor output.</li>
+      <li>Implemented motor stop logic in the interrupt service routines (ISRs).</li>
+      <li>Verified function through oscilloscope readings and LED indicators.</li>
+    </ul>
+  </div>
+  
+  <!-- <h2>Testing and Results</h2>
+  <ul>
+    <li>✅ Motors stopped reliably when switches were triggered, confirming correct interrupt handling.</li>
+    <li>🧪 Observed switch input changes via UART and LEDs during testing.</li>
+    <li>📈 Debouncing techniques were considered but not fully implemented in code.</li>
+  </ul>
+  
+  <h2>Gallery</h2>
+  <div class="gallery">
+    <img src="../images/limit-switch.jpg" alt="Prototype with motor wiring">
+  </div> -->
+  
+</div>
+
+<div id="footer-container"></div>
+
+<script>
+  // Scroll-to-top visibility
+  const scrollBtn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    scrollBtn.classList.toggle('show', window.scrollY > 100);
+  });
+
+  // Load navbar and footer
+  fetch("../reusable/nav.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("nav-container").innerHTML = data;
+    });
+
+  fetch("../reusable/footer.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("footer-container").innerHTML = data;
+    });
+</script>
+
+</body>
+</html>
