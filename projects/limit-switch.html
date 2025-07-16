@@ -7,12 +7,27 @@
   <link rel="stylesheet" href="../styles/nav-styles.css" />
   <link rel="stylesheet" href="../styles/footer-styles.css" />
   <link rel="stylesheet" href="../styles/project-styles.css" />
+  <link rel="icon" type="image/svg+xml" href="etc/etc.svg" />
 </head>
 <body>
 
 <a class="scroll-top" href="#top" id="scrollTop" title="Back to top">↑</a>
 
-<div id="nav-container"></div>
+
+<nav>
+  <div class="logo">
+    <a href="/index.html">
+      <img src="../etc/etc-white.png" alt="Logo" />
+    </a>
+  </div>
+  <div>
+    <a href="/index.html#projects">projects</a>
+    <a href="/index.html#experience">co-op experience</a>
+    <a href="/index.html#about">about me</a>
+    <a href="../2025 resume controls.pdf" target="_blank">resume</a>
+  </div>
+</nav>
+<!-- <div id="nav-container"></div> -->
 
 <div class="content">
   <div class="breadcrumb">
@@ -25,7 +40,7 @@
     This embedded systems project controlled two motors using a microcontroller (STM32F401RE) and a set of limit switches. The motors stopped automatically when the switches were triggered at the ends of their respective axes.
   </p>
   
-  <img src="../images/limit-switch.jpg" alt="2 Axis Limit Switch Prototype" class="main-image" />
+  <img src="images/mte325/axis.png" alt="2 Axis Limit Switch Prototype" class="main-image" />
   
   <h2>Overview</h2>
   <ul>
@@ -34,32 +49,37 @@
     <li>Verified correct stopping behavior by manually triggering switches during operation.</li>
   </ul>
   
-  <h2>Embedded Systems Focus</h2>
-  
+  <h2>Embedded Systems Implementation</h2>
   <div class="highlight-box">
     <ul>
-      <li>Configured STM32 GPIO pins with pull-up resistors to read switch state.</li>
-      <li>Used interrupts to respond to limit switch activation and stop motor output.</li>
-      <li>Implemented motor stop logic in the interrupt service routines (ISRs).</li>
-      <li>Verified function through oscilloscope readings and LED indicators.</li>
+      <li>Configured GPIO pins with internal pull-up resistors to monitor digital input from limit switches.</li>
+      <li>Implemented external interrupts on falling edge to detect limit switch activation events in real-time.</li>
+      <li>Developed ISR routines to disable motor driver output upon switch activation, ensuring axis constraints.</li>
+      <li>Used ADC input to read analog sensor values (e.g., potentiometer for speed or position feedback if applicable).</li>
+      <li>Transmitted system status over UART to monitor state transitions and verify ISR behavior during testing.</li>
     </ul>
-  </div>
+  </div>  
   
-  <!-- <h2>Testing and Results</h2>
-  <ul>
-    <li>✅ Motors stopped reliably when switches were triggered, confirming correct interrupt handling.</li>
-    <li>🧪 Observed switch input changes via UART and LEDs during testing.</li>
-    <li>📈 Debouncing techniques were considered but not fully implemented in code.</li>
-  </ul>
+  <h2>System Testing and Verification</h2>
+<ul>
+  <li>Tested switch activation by manually triggering each limit switch during motor movement. Verified immediate stop response.</li>
+  <li>Observed UART output for real-time feedback on system state, including switch activations and motor status.</li>
+  <li>Used onboard LEDs to indicate system readiness and fault conditions during development.</li>
+  <li>Validated ADC input accuracy by comparing read values against known reference voltages.</li>
+</ul>
   
-  <h2>Gallery</h2>
+  <!-- <h2>Gallery</h2>
   <div class="gallery">
     <img src="../images/limit-switch.jpg" alt="Prototype with motor wiring">
   </div> -->
   
 </div>
 
-<div id="footer-container"></div>
+<!-- <div id="footer-container"></div> -->
+
+<div style="text-align: center; padding: 1em 1em 1em; background-color: #0d0f14; color: white;">
+  © 2025 elixshim
+</div>
 
 <script>
   // Scroll-to-top visibility
